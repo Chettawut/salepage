@@ -1,205 +1,211 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="tis-620">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sale Page</title>
-    <!-- Bootstrap core CSS -->
-    
-    <?php include_once('import_css.php'); ?>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
     body {
-        background: url("img/Main_BG11.jpg") no-repeat center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        background-size: cover;
+        font-family: Arial, Helvetica, sans-serif;
     }
-    #page_main{
-        transition: 0.3s;
-        border-radius: 20px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    /* Set a style for all buttons */
+    button {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
+
+    /* Center the image and position the close button */
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+        position: relative;
+    }
+
+    img.avatar {
+        width: 40%;
+        border-radius: 50%;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+        padding-top: 60px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 80%;
+        /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button (x) */
+    .close {
+        position: absolute;
+        right: 25px;
+        top: 0;
+        color: #000;
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: red;
+        cursor: pointer;
+    }
+
+    /* Add Zoom Animation */
+    .animate {
+        -webkit-animation: animatezoom 0.6s;
+        animation: animatezoom 0.6s
+    }
+
+    @-webkit-keyframes animatezoom {
+        from {
+            -webkit-transform: scale(0)
+        }
+
+        to {
+            -webkit-transform: scale(1)
+        }
+    }
+
+    @keyframes animatezoom {
+        from {
+            transform: scale(0)
+        }
+
+        to {
+            transform: scale(1)
+        }
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+        span.psw {
+            display: block;
+            float: none;
+        }
+
+        .cancelbtn {
+            width: 100%;
+        }
     }
     </style>
-
-
 </head>
-
-<?php
-date_default_timezone_set('Asia/Bangkok');
-$allpage = 12;
-$votepage = 10;
-?>
 
 <body>
 
-    <div name="page_main" id="page_main" class="row justify-content-md-center" style="margin-top:120px;">
 
-        <div class="col-xs-8 col-lg-4">
-            <div id="demo" class="carousel slide" style="text-align:center;">
-
-
-                <div class="card">
-                    <div class="card-body">
-                        <?php 
-                        // include_once('conn.php')
-                        ?>
-                        <h3 style="margin-bottom:5px;">Steel Wire System </h3>
-                        <br>
-                        <!-- <button id="modalActivate" data-toggle="modal" data-target="#exampleModalPreview" type="button"
-                            style="margin-bottom:10px;" class="btn btn-primary btn-lg btn-block"
-                            onclick="openFullscreen();">Production</button>
-                        <br> -->
-                        <button type="button" style="margin-bottom:10px;"
-                            class="btn btn-primary btn-lg btn-block" onclick="location.replace('wirerod');">Wirerod</button>
-                        <br>                        
-                        <button type="button" style="margin-bottom:10px;"
-                            class="btn btn-primary btn-lg btn-block" onclick="location.replace('FG');">Production</button>
-                        <br>
-                        <button type="button" style="margin-bottom:10px;"
-                            class="btn btn-primary btn-lg btn-block" onclick="location.replace('QC');">QC</button>
-                        <br>                        
-                        <button type="button" style="margin-bottom:10px;"
-                            class="btn btn-primary btn-lg btn-block" onclick="location.replace('wirerod');">Sale Order</button>
-                        <br>                        
-
-                        <button type="button" style="margin-bottom:10px;"
-                            class="btn btn-primary btn-lg btn-block" onclick="location.replace('delivery');">Delivery</button>
-                        <br>
-                        
-                        <button id="btnSetting" type="button" style="margin-bottom:10px;"
-                            class="btn btn-secondary btn-lg btn-block" onclick="location.replace('default');">ตั้งค่าค่าตั้งต้น</button>
-                        <br>                        
-
-
-                    </div>
-                </div>
-
-
-            </div>
-
-            <br>
-        </div>
-
+    <div style="text-align: center;">
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+            Login
+        </button>
     </div>
 
-    <div name="page_setting" id="page_setting" class="row justify-content-md-center"
-        style="display:none;margin-top:120px;">
+    <div id="id01" class="modal">
 
-        <div class="col-xs-12 col-lg-10 ">
-            <div id="demo" class="carousel slide" style="text-align:center;">
-
-
-                <div class="card">
-                    <a id="btnBackMain" class="w3-left w3-btn" href="#">❮ ย้อนกลับ</a>
-
-                    <div class="card-body">
-                        <?php include_once('conn.php')?>
-                        <h1 class="card-title" style="margin-bottom:10px;">การตั้งค่า </h1>
-                        <br>
-                        <button data-toggle="modal" data-target="#exampleModalPreview" type="button"
-                            style="margin-bottom:10px;" class="btn btn-primary btn-lg btn-block"
-                            onclick="openFullscreen();">กดดูรายงาน</button>
-                        <br>
-                        <button type="button" style="margin-bottom:10px;"
-                            class="btn btn-primary btn-lg btn-block">ปริ้นรายงาน</button>
-                        <br>
-                        <button type="button" style="margin-bottom:10px;"
-                            class="btn btn-primary btn-lg btn-block">ตั้งค่าค่าตั้งต้น</button>
-                        <br>
-                        <!-- <button type="button" style="margin-bottom:10px;" class="btn btn-primary btn-lg btn-block">��Ѻ����§ҹ</button> -->
-
-
-                    </div>
-                </div>
-
-
+        <form class="modal-content animate" action="login_result.php" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <img src="img_avatar2.png" alt="Avatar" class="avatar">
             </div>
 
-            <br>
-        </div>
+            <div class="container">
 
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" id="username" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+
+                <button type="submit" >Login</button>
+
+
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+
+
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>
+                </div>
+        </form>
     </div>
 
-    <!-- Modal -->
-    <div  class="modal fade right" id="exampleModalPreview" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
-        <div class="modal-dialog-full-width modal-dialog momodel modal-fluid" role="document">
-            <div class="modal-content-full-width modal-content ">
-                
-                <div class="modal-body" style="background-color: #FFF;" >
-                    <!-- <h1 class="section-heading text-center wow fadeIn my-5 pt-3"> Not for money, but
-                        for humanity</h1> -->
-                    <?php
-                    for($i=1;$i<=$allpage;$i++)
-                    {
-                        include_once('page/page'.$i.'.php');
-                    } 
-                    ?>
-                    
-                </div>
-                <div class="modal-footer-full-width  modal-footer">
-                    
-                    <button id="btnFixTime" type="button" style="display:none;"  class="btn btn-secondary mr-auto">ดู ตามเวลาที่กำหนดไว้</button>
+    <script>
+    // Get the modal
+    var modal = document.getElementById('id01');
 
-                    <button id="btnRealTime" type="button" style="display:none;" class="btn btn-secondary mr-auto">ดู Real time</button>
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    </script>
 
-                    <?php
-                    for($i=1;$i<=$votepage;$i++)
-                    {
-                        echo '<button id="btnSaveTime'.$i.'" type="button" style="display:none;" OnClick="loadDoc('.$i.',3);" class="btn btn-secondary mr-auto">Save this time</button>';
-                    }
-                    ?>
-                    
-                    
-
-                    <button id="btnClose" type="button" class="btn btn-danger btn-md btn-rounded" data-dismiss="modal"
-                        onclick="closeFullscreen();">Close</button>
-                    <button id="btnPrevious" type="button" style="display:none;"
-                        class="btn btn-primary btn-md btn-rounded">Previous</button>
-                    <button id="btnNext" type="button" class="btn btn-primary btn-md btn-rounded">Next</button>
-                    <!-- <button type="button" class="btn btn-primary btn-md btn-rounded">Save
-                        changes</button> -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
 </body>
 
 </html>
-
-<?php include_once('import_js.php')?>
-
-<script>
-var elem = document.documentElement;
-
-function openFullscreen() {
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) {
-        /* Firefox */
-        elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) {
-        /* Chrome, Safari & Opera */
-        elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) {
-        /* IE/Edge */
-        elem.msRequestFullscreen();
-    }
-}
-
-function closeFullscreen() {
-    if (document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
-    }
-}
-</script>
