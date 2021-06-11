@@ -5,7 +5,7 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: ../');
     exit;
 }
-	?>
+  ?>
 <!DOCTYPE html>
 <html>
 
