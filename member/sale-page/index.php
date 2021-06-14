@@ -45,9 +45,9 @@ date_default_timezone_set('Asia/Bangkok');
                     <div class="col-sm-6">
                         <br>
                         <ol class="breadcrumb float-sm-right">
-                            <button type="button" style="margin-right:10px;" class="btn btn-primary"><i
+                            <!-- <button type="button" style="margin-right:10px;" class="btn btn-primary"><i
                                     class="fas fa-globe"></i>
-                                ยืนยันโดเมน</button>
+                                ยืนยันโดเมน</button> -->
                             <button type="button" class="btn btn-success"><i class="fas fa-save"></i>
                                 บันทึก</button>
                         </ol>
@@ -134,9 +134,8 @@ date_default_timezone_set('Asia/Bangkok');
                         </div>
                         <br>
 
-                        <div class="card align-items-center">
-                            <br>
-                            <iframe width="420" height="315" src="https://www.youtube.com/embed/vqwvN8q36JM?autoplay=1">
+                        <div id="cardobject" class="card card-outline card-info align-items-center" style="padding:25px;">
+                            <!-- <iframe width="420" height="315" src="https://www.youtube.com/embed/vqwvN8q36JM?autoplay=1">
                             </iframe>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">หัวข้อ</label>
@@ -340,15 +339,17 @@ date_default_timezone_set('Asia/Bangkok');
 
                             <button type="button" class="btn btn-danger form-control">
                                 ยืนยันคำสั่งซื้อ
-                            </button>
+                            </button> -->
 
                             <div class="card align-items-center" data-toggle="modal" data-target="#modal_add_content"
                                 style="width: 18rem;padding:5rem;">
                                 <i class="fas fa-plus-circle" style="font-size:150px;color:green"></i>
                                 <br>
                                 เพิ่มเนื้อหา
-                            </div>
-                        </div>
+                            </div> 
+                            <input type="text" id="test1">
+                            <button type="button" id="btnSave_text" class="btn btn-primary">บันทึก</button>
+                        </div> 
                     </div>
 
 
@@ -364,6 +365,7 @@ date_default_timezone_set('Asia/Bangkok');
     </div>
 
     <?php include_once('modal/add_content.php')?>
+    <?php include_once('modal/add_text.php')?>
 
 </body>
 

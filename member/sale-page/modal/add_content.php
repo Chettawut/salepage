@@ -10,10 +10,10 @@
             <div class="modal-body">
                 <table class="table table-hover">
                     <tr>
-                        <td>รูปภาพ</td>
+                        <td data-toggle="modal" data-target="#modal_add_text"  data-dismiss="modal">ข้อความ</td>
                     </tr>
                     <tr>
-                        <td>ข้อความ</td>
+                        <td>รูปภาพ</td>
                     </tr>
                     <tr>
                         <td>เลือกปุ่ม</td>
@@ -33,8 +33,8 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
             </div>
         </div>
     </div>

@@ -1,0 +1,48 @@
+RewriteEngine on
+
+RewriteOptions inherit
+#RewriteBase /
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteRule ^web/ /new2018/index.php    [NC,L]    # Process 
+RewriteRule ^sites/admin/ /new2018/admin/index.php    [NC,L]    # Process 
+RewriteRule ^sites/menu-header/ /new2018/admin/menu-header-admin.php    [NC,L]    # Process 
+RewriteRule ^sites/investor/ /new2018/admin/investor-admin.php    [NC,L]    # Process 
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^investor/(.*)/ /backend/admin/fileinvestor/$1.pdf [NC,L]
+RewriteRule ^annual/(.*)/ /annual-report/$1.pdf [NC,L] 
+RewriteRule ^form/(.*)/ /backend/admin/fileform/$1.pdf [NC,L] 
+RewriteRule ^governance/(.*)/ /backend/admin/filegovernance/$1.pdf [NC,L] 
+RewriteRule ^news/(.*)/ /backend/admin/filenews/$1.pdf [NC,L] 
+RewriteRule ^download/(.*)/ /backend/admin/filedownload/$1.pdf [NC,L] 
+RewriteRule ^jpg/(.*)/ /backend/admin/filedownload/$1.jpg [NC,L] 
+RewriteRule ^contact/(.*)/ /backend/admin/ckeditor/samples/filecontact/$1.jpg [NC,L] 
+
+
+<IfModule mod_expires.c>
+
+# Enable expirations
+ExpiresActive On
+
+# Default directive
+ExpiresDefault "access plus 1 month"
+
+# My favicon
+ExpiresByType image/x-icon "access plus 1 year"
+
+# Images
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/jpg "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+
+# CSS
+ExpiresByType text/css "access 1 month"
+
+# Javascript
+ExpiresByType application/javascript "access plus 1 month"
+
+</IfModule>
