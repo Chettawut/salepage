@@ -59,6 +59,14 @@ include_once('config.php');
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="<?php echo PATH; ?>/id-card" class="nav-link">
+                        <i class="nav-icon fas fa-id-card"></i>
+                        <p>
+                            โปรแกรมสร้างบัตร
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="<?php echo PATH; ?>" class="nav-link">
                         <i class="nav-icon fab fa-product-hunt"></i>
                         <p>
@@ -95,6 +103,14 @@ include_once('config.php');
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>
                             ตั้งค่าและการชำระเงิน
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo PATH; ?>" class="nav-link">
+                        <i class="nav-icon fa fa-users"></i>
+                        <p>
+                            จัดการสมาชิก
                         </p>
                     </a>
                 </li>
