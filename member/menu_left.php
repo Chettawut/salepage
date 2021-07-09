@@ -107,7 +107,7 @@ include_once('config.php');
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?php echo PATH; ?>" class="nav-link">
+                    <a href="<?php echo PATH; ?>/admin" class="nav-link">
                         <i class="nav-icon fa fa-users"></i>
                         <p>
                             จัดการสมาชิก

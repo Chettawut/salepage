@@ -44,7 +44,7 @@ date_default_timezone_set('Asia/Bangkok');
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark"> <i class="nav-icon fa fa-edit"></i> บัตรประชาชน</h1>
+                        <h1 class="m-0 text-dark"> <i class="nav-icon fas fa-id-card"></i> บัตรประชาชน</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <br>

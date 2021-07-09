@@ -1,68 +1,124 @@
-<script>
-$(document).ready(function() {
-    // modal_add_content
-    $("#btnSave_text").click(function() {
-        // alert(("#txtarea_text").val());
-        alert(("#test1").val());
+<script type="text/javascript">
+$(function() {
 
+    $.ajax({
+        type: "POST",
+        url: "ajax/get_user.php",
+        //    data: $("#frmMain").serialize(),
+        success: function(result) {
+            var type;
+            for (count = 0; count < result.username.length; count++) {
+
+                if (result.type[count] == '01')
+                    type = 'Member'
+                if (result.type[count] == '99')
+                    type = 'Admin'
+
+                $('#tableUser').append(
+                    '<tr data-toggle="modal" data-target="#modelUserEdit" id="' + result
+                    .username[
+                        count] + '" data-whatever="' + result.username[
+                        count] + '">.<td>' + result.username[count] + '</td><td>' +
+                    result.firstname[count] + '</td><td>' + type + '</td></tr>');
+            }
+
+            var table = $('#tableUser').DataTable({
+                "dom": '<"pull-right"f>rt<"bottom"p><"clear">',
+                "ordering": false
+            });
+
+            $(".dataTables_filter input[type='search']").attr({
+                size: 60,
+                maxlength: 60
+            });
+
+        }
+    });
+
+
+})
+$('#modelUserEdit').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+    var recipient = button.data('whatever');
+    var modal = $(this);
+    
+    $.ajax({
+        type: "POST",
+        url: "ajax/getsup_user.php",
+        data: "idcode=" + recipient,
+        success: function(result) {
+            modal.find('.modal-body #editusername').val(result.username);
+            modal.find('.modal-body #editfirstname').val(result.firstname);
+            modal.find('.modal-body #editlastname').val(result.lastname);
+            modal.find('.modal-body #edittype').val(result.type);
+            modal.find('.modal-body #editstatus').val(result.status);
+            modal.find('.modal-body #edittel').val(result.tel);
+            modal.find('.modal-body #editemail').val(result.email);
+
+        }
     });
 });
 
+$("#btnRefresh").click(function() {
+    window.location.reload();
+});
 
-// $.ajax({
-//         type: "POST",
-//         url: "ajax/get_All.php",
-//         data: {
-//             topiccode: topic
-//         },
-//         success: function(
-//             result) {
-//                 //console.log(result.amount);
-//             if (isInt(topic)) {
-
-//                 $('#txtTotalpeople' + topic).text(result.amount);
-//                 $('#txtTotalamount' + topic).text(formatMoney(result.total, 0));
-//                 $('#txtTotalpercen' + topic).text('100.00 %');
-//             } else {
-//                 $('#txtTotalpeople' + topic.replace(".", "_")).text(result.amount);
-//                 $('#txtTotalamount' + topic.replace(".", "_")).text(formatMoney(result.total, 0));
-//                 $('#txtTotalpercen' + topic.replace(".", "_")).text('100.00 %');
-
-//             }
-
+//ส่งใบแจ้ง
+$("#frmAddUser").submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+        type: "POST",
+        url: "ajax/add_user.php",
+        data: $("#frmAddUser").serialize(),
+        success: function(result) {
+            if (result.status == 1) // Success
+            {
+                alert(result.message);
+                window.location.reload();
+                // console.log(result.message);
+            }
+        }
+    });
 
 
-//         }
-//     });
+});
 
+$("#btnEditUser").click(function() {
 
+    $.ajax({
+        type: "POST",
+        url: "ajax/edit_user.php",
+        data: $("#frmEditUser").serialize(),
+        success: function(result) {
 
-// Set the date we're counting down to
-var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
+            if (result.status == 1) // Success
+            {
+                alert(result.message);
+                window.location.reload();
+                // console.log(result.message);
+            }
+        }
+    });
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+});
 
-    // Get today's date and time
-    var now = new Date().getTime();
+$("#btnDeleteUser").click(function() {
 
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
+    $.ajax({
+        type: "POST",
+        url: "ajax/delete_user.php",
+        data: $("#frmEditUser").serialize(),
+        success: function(result) {
 
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            if (result.status == 1) // Success
+            {
+                alert(result.message);
+                window.location.reload();
+                // console.log(result.message);
+            }
+        }
+    });
 
-    // Output the result in an element with id="demo"
-    document.getElementById("countdown").innerHTML = hours + "h " +
-        minutes + "m " + seconds + "s ";
+});
 
-    // If the count down is over, write some text 
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "EXPIRED";
-    }
-}, 1000);
 </script>
