@@ -34,22 +34,22 @@ include_once('config.php');
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="<?php echo PATH; ?>" class="nav-link">
                         <i class="nav-icon fa fa-shopping-cart"></i>
                         <p>
                             รายการสั่งซื้อ
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <!-- <li class="nav-item">
                     <a href="<?php echo PATH; ?>" class="nav-link">
                         <i class="nav-icon fas fa-registered"></i>
                         <p>
                             รายการลงทะเบียน
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="<?php echo PATH; ?>/sale-page" class="nav-link">
                         <i class="nav-icon fa fa-edit"></i>
@@ -66,46 +66,46 @@ include_once('config.php');
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="<?php echo PATH; ?>" class="nav-link">
                         <i class="nav-icon fab fa-product-hunt"></i>
                         <p>
                             ข้อมูลสินค้า
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <!-- <li class="nav-item">
                     <a href="<?php echo PATH; ?>" class="nav-link">
                         <i class="nav-icon fa fa-user"></i>
                         <p>
                             ข้อมูลผู้ใช้งาน
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <!-- <li class="nav-item">
                     <a href="<?php echo PATH; ?>" class="nav-link">
                         <i class="nav-icon fa fa-share-alt"></i>
                         <p>
                             แนะนำเพื่อน
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <!-- <li class="nav-item">
                     <a href="<?php echo PATH; ?>" class="nav-link">
                         <i class="nav-icon fas fa-sms"></i>
                         <p>
                             SMS
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> -->
+                <!-- <li class="nav-item">
                     <a href="<?php echo PATH; ?>" class="nav-link">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>
                             ตั้งค่าและการชำระเงิน
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="<?php echo PATH; ?>/admin" class="nav-link">
                         <i class="nav-icon fa fa-users"></i>

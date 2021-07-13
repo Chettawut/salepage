@@ -70,16 +70,59 @@ date_default_timezone_set('Asia/Bangkok');
                     <button type="button" class="btn btn-primary"><i class="fas fa-sync-alt"></i>
                         Refresh </button>
                 </div>
-                <input id="txtusername" type="text" value="<?php echo $_SESSION["username"];?>" >
+                <input type="hidden" name="txtusername" id="txtusername" value="<?php echo $_SESSION["username"];?>">
+
                 <hr>
                 <div class="card card-info">
-                    <div class="card-header">
-                        <h3 class="card-title"> &nbsp;</h3>
+                    <div class="card-header border-0">
+                        <h3 class="card-title">&nbsp;</h3>
+                        <div class="card-tools">
+                            <!-- <a href="#" class="btn btn-tool btn-sm">
+                                <i class="fas fa-download"></i>
+                            </a> -->
+                            <a href="#" class="btn btn-tool btn-sm">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="card-footer" style="background-color:#b3e6ff">
-                        <h1>คุณยังไม่มี salepage</h1>
+                    <div class="card-body table-responsive p-0">
+                        <table id="tablesalepage" class="table table-striped table-hover table-valign-middle">
+                            <thead>
+                                <tr>
+                                    <th style="width:20%;text-align:left">ลำดับ</th>
+                                    <th style="width:50%;text-align:left">ชื่อเซลเพจ</th>
+                                    <th style="width:20%;text-align:left">สถานะ</th>
+                                    <th style="width:10%;text-align:left"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <!-- <tr>
+                                    <td>
+                                        <img src="dist/img/default-150x150.png" alt="Product 1"
+                                            class="img-circle img-size-32 mr-2">
+                                        Perfect Item
+                                        <span class="badge bg-danger">NEW</span>
+                                    </td>
+                                    <td>$199 USD</td>
+                                    <td>
+                                        <small class="text-success mr-1">
+                                            <i class="fas fa-arrow-up"></i>
+                                            63%
+                                        </small>
+                                        87 Sold
+                                    </td>
+                                    <td>
+                                        <a href="#" class="text-muted">
+                                            <i class="fas fa-search"></i>
+                                        </a>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+
 
                 <hr>
             </div>
