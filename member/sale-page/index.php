@@ -122,6 +122,10 @@ date_default_timezone_set('Asia/Bangkok');
                         </table>
                     </div>
                 </div>
+                <form style="display: none" action="edit_salepage" method="POST" id="form">
+                    <input type="hidden" id="var1" name="var1" value="dd" />
+                    <input type="hidden" id="var2" name="var2" value="" />
+                </form>
 
 
                 <hr>

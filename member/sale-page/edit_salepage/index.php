@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: ../');
+    header('Location: ../../');
     exit;
 }
 	 ?>
@@ -15,7 +15,7 @@ if (!isset($_SESSION['loggedin'])) {
     <title>ข้อมูลเซลเพจ</title>
     <!-- Bootstrap core CSS -->
 
-    <?php include_once('../import_css.php'); ?>
+    <?php include_once('../../import_css.php'); ?>
 
     <style>
 
@@ -30,9 +30,9 @@ date_default_timezone_set('Asia/Bangkok');
 
 <body>
 
-    <?php include_once('../menu_head.php')?>
+    <?php include_once('../../menu_head.php')?>
 
-    <?php include_once('../menu_left.php')?>
+    <?php include_once('../../menu_left.php')?>
 
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -77,6 +77,7 @@ date_default_timezone_set('Asia/Bangkok');
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <br>
                         <div class="container-fluid">
+                        <?php echo $_POST['var1']; ?>
                             <div class="row">
                                 <div class="col-8">
                                     <div class="input-group">
@@ -371,6 +372,6 @@ date_default_timezone_set('Asia/Bangkok');
 
 </html>
 
-<?php include_once('../import_js.php')?>
+<?php include_once('../../import_js.php')?>
 
 <?php include_once('js.php')?>
