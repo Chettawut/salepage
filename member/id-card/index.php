@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <html lang="en">
 
 <head>
-    <meta charset="tis-620">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ข้อมูลเซลเพจ</title>
     <!-- Bootstrap core CSS -->

@@ -10,7 +10,7 @@ if (!isset($_SESSION['loggedin'])) {
 <html lang="en">
 
 <head>
-    <meta charset="tis-620">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sale Page</title>
     <!-- Bootstrap core CSS -->

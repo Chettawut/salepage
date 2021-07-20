@@ -20,5 +20,4 @@
             echo json_encode(array('status' => '0','message'=> 'Error insert data!'));
         }
     
-        mysqli_close($conn);
 ?>
