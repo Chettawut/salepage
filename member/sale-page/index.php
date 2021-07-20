@@ -85,47 +85,35 @@ date_default_timezone_set('Asia/Bangkok');
                             </a>
                         </div>
                     </div>
-                    <div class="card-body table-responsive p-0">
-                        <table id="tablesalepage" class="table table-striped table-hover table-valign-middle">
-                            <thead>
-                                <tr>
-                                    <th style="width:20%;text-align:left">ลำดับ</th>
-                                    <th style="width:50%;text-align:left">ชื่อเซลเพจ</th>
-                                    <th style="width:20%;text-align:left">สถานะ</th>
-                                    <th style="width:10%;text-align:left"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <form id="frmsp" action="edit_salepage/index.php" method="post" target="_blank">
+                        <!-- <button type="button" id="btnBack" style="display:none;" class="btn btn-success"><i
+                                class="fa fa fa-tags" aria-hidden="true"></i>
+                            ย้อนกลับ</button>
+                        <button type="submit" id="btnPrintInvoice" style="display:none;" class="btn btn-primary"><i
+                                class="fa fa-print" aria-hidden="true"></i>
+                            ใบกำกับภาษี</button>
+                        <button type="submit" id="btnPrintReceipt" formaction="receipt-print.php" style="display:none;"
+                            class="btn btn-primary"><i class="fa fa-print" aria-hidden="true"></i>
+                            ใบเสร็จรับเงิน</button> -->
+                        <input type="hidden" id="selectsp" class="btn btn-default" name="selectsp" value="John">
 
-                                <!-- <tr>
-                                    <td>
-                                        <img src="dist/img/default-150x150.png" alt="Product 1"
-                                            class="img-circle img-size-32 mr-2">
-                                        Perfect Item
-                                        <span class="badge bg-danger">NEW</span>
-                                    </td>
-                                    <td>$199 USD</td>
-                                    <td>
-                                        <small class="text-success mr-1">
-                                            <i class="fas fa-arrow-up"></i>
-                                            63%
-                                        </small>
-                                        87 Sold
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-muted">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                    </td>
-                                </tr> -->
-                            </tbody>
-                        </table>
-                    </div>
+                        <div class="card-body table-responsive p-0">
+                            <table id="tablesalepage" class="table table-striped table-hover table-valign-middle">
+                                <thead>
+                                    <tr>
+                                        <th style="width:20%;text-align:left">ลำดับ</th>
+                                        <th style="width:50%;text-align:left">ชื่อเซลเพจ</th>
+                                        <th style="width:20%;text-align:left">สถานะ</th>
+                                        <th style="width:10%;text-align:left"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
                 </div>
-                <form style="display: none" action="edit_salepage" method="POST" id="form">
-                    <input type="hidden" id="var1" name="var1" value="dd" />
-                    <input type="hidden" id="var2" name="var2" value="" />
-                </form>
+
 
 
                 <hr>

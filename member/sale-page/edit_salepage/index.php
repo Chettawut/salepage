@@ -77,7 +77,7 @@ date_default_timezone_set('Asia/Bangkok');
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <br>
                         <div class="container-fluid">
-                        <?php echo $_POST['var1']; ?>
+                        <?php echo $_POST['selectsp']; ?>
                             <div class="row">
                                 <div class="col-8">
                                     <div class="input-group">

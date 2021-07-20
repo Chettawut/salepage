@@ -51,9 +51,8 @@ $("#btnRefresh").click(function() {
 
 function onClick_tr(id) {
 
-    $("#var1").val(id);
-    // $("#var2").val(value2);
+    $("#selectsp").val(id);
 
-    $("#form").submit();
+    $("#frmsp").submit();
 }
 </script>
