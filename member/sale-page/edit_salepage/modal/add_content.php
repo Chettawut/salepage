@@ -16,7 +16,7 @@
                         <td data-toggle="modal" data-target="#modal_add_button"  data-dismiss="modal">เลือกปุ่ม</td>
                     </tr>
                     <tr>
-                        <td>รูปภาพ</td>
+                        <td data-toggle="modal" data-target="#modal_add_picture"  data-dismiss="modal">รูปภาพ</td>
                     </tr>
                     <tr>
                         <td>เพิ่มฟอร์ม</td>

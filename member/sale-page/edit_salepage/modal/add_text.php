@@ -8,12 +8,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="mb-3">
-                    <textarea class="textarea" id="txtarea_text" placeholder="Place some text here"
-                        style="width: 100%; height: 100%; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                <textarea class="textarea" id="txtarea_text"
+                    style="width: 100%; height: 100%; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
                     </textarea>
-                </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>

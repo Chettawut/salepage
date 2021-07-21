@@ -33,7 +33,7 @@ date_default_timezone_set('Asia/Bangkok');
     <?php include_once('../../menu_head.php')?>
 
     <?php include_once('../../menu_left.php')?>
-    <?php include_once('../../conn.php')?>
+    <?php include_once('../../../conn.php')?>
 
     <?php
     
@@ -399,10 +399,11 @@ date_default_timezone_set('Asia/Bangkok');
 
             </div>
     </div>
-
+    
     <?php include_once('modal/add_content.php')?>
     <?php include_once('modal/add_button.php')?>
     <?php include_once('modal/add_text.php')?>
+    <?php include_once('modal/add_picture.php')?>
 
 </body>
 

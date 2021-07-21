@@ -9,7 +9,7 @@
     
     $StrSQL = "INSERT INTO object (`objno`,`text`,`pagecode`,`url`,`typecode`,`status`,`date`,`time`) ";
     $StrSQL .= "VALUES (";
-    $StrSQL .= "'".$_POST["objno"]."','".$_POST["text"]."','".$_POST["pagecode"]."','','1','','".date("Y-m-d")."','".date("H:i:s")."' ";
+    $StrSQL .= "'".$_POST["objno"]."','".$_POST["text"]."','".$_POST["pagecode"]."','','1','Y','".date("Y-m-d")."','".date("H:i:s")."' ";
     $StrSQL .= ")";
     $query = mysqli_query($conn,$StrSQL);
     

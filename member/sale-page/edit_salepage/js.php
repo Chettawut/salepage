@@ -47,7 +47,7 @@ $("#btnSaveText").click(function() {
 });
 
 $("#btnSaveBtn").click(function() {
-    // alert($("#txtarea_text").val());
+    // alert($("#txtbtnfb").val());
     $.ajax({
         type: "POST",
         url: "ajax/add_button.php",
