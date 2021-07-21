@@ -27,9 +27,34 @@ $("#btnSaveText").click(function() {
     // alert($("#txtarea_text").val());
     $.ajax({
         type: "POST",
-        url: "ajax/set_text.php",
+        url: "ajax/add_text.php",
         data: {
             text: $('#txtarea_text').val(),
+            objno: $('#objno').val(),
+            pagecode: $('#pagecode').val()
+        },
+        success: function(result) {
+
+            if (result.status == 1) // Success
+            {
+                alert(result.message);
+                window.location.reload();
+                // console.log(result.message);
+            }
+        }
+    });
+
+});
+
+$("#btnSaveBtn").click(function() {
+    // alert($("#txtarea_text").val());
+    $.ajax({
+        type: "POST",
+        url: "ajax/add_button.php",
+        data: {
+            fb: $('#txtbtnfb').val(),
+            line: $('#txtbtnline').val(),
+            tel: $('#txtbtntel').val(),
             objno: $('#objno').val(),
             pagecode: $('#pagecode').val()
         },

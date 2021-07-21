@@ -13,10 +13,10 @@
                         <td data-toggle="modal" data-target="#modal_add_text"  data-dismiss="modal">ข้อความ</td>
                     </tr>
                     <tr>
-                        <td>รูปภาพ</td>
+                        <td data-toggle="modal" data-target="#modal_add_button"  data-dismiss="modal">เลือกปุ่ม</td>
                     </tr>
                     <tr>
-                        <td>เลือกปุ่ม</td>
+                        <td>รูปภาพ</td>
                     </tr>
                     <tr>
                         <td>เพิ่มฟอร์ม</td>
