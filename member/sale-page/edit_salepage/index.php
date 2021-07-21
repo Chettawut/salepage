@@ -5,6 +5,7 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: ../../');
     exit;
 }
+
 	 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,11 +30,41 @@ date_default_timezone_set('Asia/Bangkok');
 ?>
 
 <body>
-
     <?php include_once('../../menu_head.php')?>
 
     <?php include_once('../../menu_left.php')?>
+    <?php include_once('../../conn.php')?>
 
+    <?php
+    
+    $strSQL = "SELECT * FROM `object` as a inner join salepage as b on(a.pagecode = b.pagecode)  where a.pagecode = '".$_POST['selectsp']."'";
+	$query = mysqli_query($conn,$strSQL);
+	
+	$json_result=array(
+        "pagecode" => array(),
+		"pagename" => array(),
+		"stname1" => array(),
+		"storage_id" => array(),
+		"unit" => array(),
+		"stmin1" => array(),
+		"stmin2" => array(),
+		"sellprice" => array(),
+		"status" => array()
+		
+        );
+        while($row = $query->fetch_assoc()) {
+            array_push($json_result['pagecode'],$row["pagecode"]);
+			array_push($json_result['pagename'],$row["pagename"]);
+			// array_push($json_result['stname1'],$row["stname1"]);
+			// array_push($json_result['storage_id'],$row["storage_id"]);
+			// array_push($json_result['unit'],$row["unit"]);
+			// array_push($json_result['stmin1'],$row["stmin1"]);
+			// array_push($json_result['stmin2'],$row["stmin2"]);
+			// array_push($json_result['sellprice'],$row["sellprice"]);
+			// array_push($json_result['status'],$row["status"]);
+        }
+        
+    ?>
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
@@ -43,12 +74,12 @@ date_default_timezone_set('Asia/Bangkok');
                         <h1 class="m-0 text-dark"> <i class="nav-icon fa fa-edit"></i> ข้อมูลเซลเพจ</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
-                        <br>
                         <ol class="breadcrumb float-sm-right">
-                            <!-- <button type="button" style="margin-right:10px;" class="btn btn-primary"><i
-                                    class="fas fa-globe"></i>
-                                ยืนยันโดเมน</button> -->
-                            <button type="button" class="btn btn-success"><i class="fas fa-save"></i>
+                            <button type="button" id="btnBack" onclick="location.href='../'" class="btn btn-success"><i
+                                    class="fa fa fa-tags" aria-hidden="true"></i>
+                                ย้อนกลับ</button>
+                                &nbsp;&nbsp;
+                            <button type="button" class="btn btn-primary"><i class="fas fa-save"></i>
                                 บันทึก</button>
                         </ol>
                     </div><!-- /.col -->
@@ -56,7 +87,9 @@ date_default_timezone_set('Asia/Bangkok');
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-
+        <input type="hidden" name="objno" id="objno" value="1">
+        <input type="hidden" name="pagecode" id="pagecode" value="<?php echo $_POST['selectsp'];?>">
+        <input type="hidden" name="txtusername" id="txtusername" value="<?php echo $_SESSION["username"];?>">
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
@@ -77,7 +110,8 @@ date_default_timezone_set('Asia/Bangkok');
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <br>
                         <div class="container-fluid">
-                        <?php echo $_POST['selectsp']; ?>
+                            
+                            <!-- <?php echo $_POST['selectsp']; ?> -->
                             <div class="row">
                                 <div class="col-8">
                                     <div class="input-group">
@@ -85,7 +119,7 @@ date_default_timezone_set('Asia/Bangkok');
                                             <span class="input-group-text" style="background-color:#FFF;">ลิงค์:</span>
                                         </div>
                                         <input type="text" id="mainurl" class="form-control"
-                                            value="https://jaroon.salepage.com/jaroon" disabled>
+                                            value="https://jaroon.salepage.com/<?php echo $json_result['pagename'][0];?>" disabled>
                                     </div>
 
                                 </div>
@@ -119,8 +153,8 @@ date_default_timezone_set('Asia/Bangkok');
                                         <span class="input-group-text"
                                             style="background-color:#FFF;">ลิงค์(สำรอง):</span>
                                     </div>
-                                    <input type="text" id="mainurl" class="form-control"
-                                        value="https://jaroon.salespage.com/jaroon" disabled>
+                                    <input type="text" id="thxmainurl" class="form-control"
+                                        value="https://jaroon.salespage.com/<?php echo $json_result['pagename'][0];?>" disabled>
                                 </div>
 
                             </div>
@@ -135,7 +169,8 @@ date_default_timezone_set('Asia/Bangkok');
                         </div>
                         <br>
 
-                        <div id="cardobject" class="card card-outline card-info align-items-center" style="padding:25px;">
+                        <div id="cardobject" class="card card-outline card-info align-items-center"
+                            style="padding:25px;">
                             <!-- <iframe width="420" height="315" src="https://www.youtube.com/embed/vqwvN8q36JM?autoplay=1">
                             </iframe>
                             <div class="form-group">
@@ -347,10 +382,10 @@ date_default_timezone_set('Asia/Bangkok');
                                 <i class="fas fa-plus-circle" style="font-size:150px;color:green"></i>
                                 <br>
                                 เพิ่มเนื้อหา
-                            </div> 
+                            </div>
                             <input type="text" id="test1">
                             <button type="button" id="btnSave_text" class="btn btn-primary">บันทึก</button>
-                        </div> 
+                        </div>
                     </div>
 
 

@@ -85,7 +85,7 @@ date_default_timezone_set('Asia/Bangkok');
                             </a>
                         </div>
                     </div>
-                    <form id="frmsp" action="edit_salepage/index.php" method="post" target="_blank">
+                    <form id="frmsp" action="edit_salepage/index.php" method="post" target="_self">
                         <!-- <button type="button" id="btnBack" style="display:none;" class="btn btn-success"><i
                                 class="fa fa fa-tags" aria-hidden="true"></i>
                             ย้อนกลับ</button>
@@ -97,21 +97,21 @@ date_default_timezone_set('Asia/Bangkok');
                             ใบเสร็จรับเงิน</button> -->
                         <input type="hidden" id="selectsp" class="btn btn-default" name="selectsp" value="John">
 
-                        <div class="card-body table-responsive p-0">
-                            <table id="tablesalepage" class="table table-striped table-hover table-valign-middle">
-                                <thead>
-                                    <tr>
-                                        <th style="width:20%;text-align:left">ลำดับ</th>
-                                        <th style="width:50%;text-align:left">ชื่อเซลเพจ</th>
-                                        <th style="width:20%;text-align:left">สถานะ</th>
-                                        <th style="width:10%;text-align:left"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
                     </form>
+                    <div class="card-body table-responsive p-0">
+                        <table id="tablesalepage" class="table table-striped table-hover table-valign-middle">
+                            <thead>
+                                <tr>
+                                    <th style="width:20%;text-align:left">ลำดับ</th>
+                                    <th style="width:50%;text-align:left">ชื่อเซลเพจ</th>
+                                    <th style="width:20%;text-align:left">สถานะ</th>
+                                    <th style="width:10%;text-align:left"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
 

@@ -11,7 +11,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">กรุณาตั้งชื่อ</label>
-                        <input type="text" name="txtname" class="form-control" placeholder="ชื่อเซลเพจ">
+                        <input type="text" name="txtname" class="form-control" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)" placeholder="ชื่อเซลเพจ ( ภาษาอังกฤษเท่านั้น )">
                         <input type="hidden" name="txtusername" value="<?php echo $_SESSION["username"];?>">
                     </div>
                 </div>
