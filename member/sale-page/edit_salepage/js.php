@@ -71,6 +71,28 @@ $("#btnSaveBtn").click(function() {
 
 });
 
+$("#formimages").on("submit", function(event) {
+    event.preventDefault(); //prevent default submitting
+    var formData = new FormData($(this)[0]);
+    $.ajax({
+        url: "ajax/submit_upload_file.php",
+        type: "post",
+        data: formData,
+        processData: false, //Not to process data
+        contentType: false, //Not to set contentType
+        success: function(data) {
+            alert('เพิ่มรูปภาพสำเร็จ');
+            $('#modal_add_picture').modal('toggle');
+        }
+    });
+
+});
+
+$("#imgaddpic").click(function() {
+    $('#inputFile').trigger('click');
+
+});
+
 // $.ajax({
 //         type: "POST",
 //         url: "ajax/get_All.php",

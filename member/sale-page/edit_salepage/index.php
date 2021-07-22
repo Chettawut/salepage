@@ -404,6 +404,7 @@ date_default_timezone_set('Asia/Bangkok');
     <?php include_once('modal/add_button.php')?>
     <?php include_once('modal/add_text.php')?>
     <?php include_once('modal/add_picture.php')?>
+    <?php include_once('modal/add_form.php')?>
 
 </body>
 
