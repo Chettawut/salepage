@@ -1,4 +1,4 @@
-<div class="modal" id="modal_add_picture" tabindex="-1" role="dialog">
+<div class="modal" id="modal_add_youtube" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,8 +9,8 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">เบอร์โทรศัพท์</label>
-                    <input type="text" name="txtbtntel" id="txtbtntel" class="form-control">
+                    <label for="exampleFormControlInput1">ลิ้ง</label>
+                    <input type="text" name="txtyoutube" id="txtyoutube" class="form-control">
                 </div>
 
             </div>
