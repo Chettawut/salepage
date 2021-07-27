@@ -1,6 +1,6 @@
 <?php
 	header('Content-Type: application/json');
-	include('../../conn.php');
+	include('../../../conn.php');
 
 	$sql = "SELECT * FROM `user` order by type desc";
 	$query = mysqli_query($conn,$sql);

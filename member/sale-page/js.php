@@ -7,13 +7,13 @@ $(document).ready(function() {
         data: "&username=" + $('#txtusername').val(),
         success: function(result) {
 
-            for (count = 0; count < result.pagecode.length; count++) {
+            for (count = 0; count < result.spcode.length; count++) {
 
                 $('#tablesalepage tbody').append(
                     '<tr data-toggle="modal" data-dismiss="modal"  id="' + result
-                    .pagecode[count] + '" onClick="onClick_tr(this.id);"><td>' + (count + 1) +
+                    .spcode[count] + '" onClick="onClick_tr(this.id);"><td>' + (count + 1) +
                     '</td><td>' +
-                    result.pagename[count] +
+                    result.spname[count] +
                     '</td><td>กำลังใช้งาน</td><td><button type="button" class="btn btn-danger"><i class="fa fa-times"></i> ลบ</button></td></tr>'
                 );
 

@@ -1,6 +1,6 @@
 <?php
 	header('Content-Type: application/json');
-    include('../../conn.php');
+    include('../../../conn.php');
     date_default_timezone_set('Asia/Bangkok');
     $password = password_hash($_POST['userpassword'], PASSWORD_DEFAULT);
     $StrSQL = "INSERT INTO user (`username`, `password`, `firstname`, `lastname`, `tel` ,`email`, `type`, `status`,`register_date`,`register_time`) ";

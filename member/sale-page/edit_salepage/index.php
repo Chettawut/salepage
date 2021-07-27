@@ -37,12 +37,12 @@ date_default_timezone_set('Asia/Bangkok');
 
     <?php
     
-    $strSQL = "SELECT * FROM `object` as a inner join salepage as b on(a.pagecode = b.pagecode)  where a.pagecode = '".$_POST['selectsp']."'";
+    $strSQL = "SELECT * FROM `objmaster` as a inner join salepage as b on(a.spcode = b.spcode)  where a.spcode = '".$_POST['selectsp']."'";
 	$query = mysqli_query($conn,$strSQL);
 	
 	$json_result=array(
-        "pagecode" => array(),
-		"pagename" => array(),
+        "spcode" => array(),
+		"spname" => array(),
 		"stname1" => array(),
 		"storage_id" => array(),
 		"unit" => array(),
@@ -53,8 +53,8 @@ date_default_timezone_set('Asia/Bangkok');
 		
         );
         while($row = $query->fetch_assoc()) {
-            array_push($json_result['pagecode'],$row["pagecode"]);
-			array_push($json_result['pagename'],$row["pagename"]);
+            array_push($json_result['spcode'],$row["spcode"]);
+			array_push($json_result['spname'],$row["spname"]);
 			// array_push($json_result['stname1'],$row["stname1"]);
 			// array_push($json_result['storage_id'],$row["storage_id"]);
 			// array_push($json_result['unit'],$row["unit"]);
@@ -119,7 +119,7 @@ date_default_timezone_set('Asia/Bangkok');
                                             <span class="input-group-text" style="background-color:#FFF;">ลิงค์:</span>
                                         </div>
                                         <input type="text" id="mainurl" class="form-control"
-                                            value="https://jaroon.salepage.com/<?php echo $json_result['pagename'][0];?>" disabled>
+                                            value="https://jaroon.salepage.com/<?php echo $json_result['spname'][0];?>" disabled>
                                     </div>
 
                                 </div>
@@ -154,7 +154,7 @@ date_default_timezone_set('Asia/Bangkok');
                                             style="background-color:#FFF;">ลิงค์(สำรอง):</span>
                                     </div>
                                     <input type="text" id="thxmainurl" class="form-control"
-                                        value="https://jaroon.salespage.com/<?php echo $json_result['pagename'][0];?>" disabled>
+                                        value="https://jaroon.salespage.com/<?php echo $json_result['spname'][0];?>" disabled>
                                 </div>
 
                             </div>

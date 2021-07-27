@@ -1,6 +1,6 @@
 <?php
 	header('Content-Type: application/json');
-	include('../../conn.php');
+	include('../../../conn.php');
     
     date_default_timezone_set("Asia/Bangkok");
     

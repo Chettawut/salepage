@@ -1,6 +1,6 @@
 <?php
 	header('Content-Type: application/json');
-	include('../../conn.php');
+	include('../../../conn.php');
 	
 	$strSQL = "SELECT * FROM `user` where username = '".$_POST['idcode']."'";
 	$query = mysqli_query($conn,$strSQL);
