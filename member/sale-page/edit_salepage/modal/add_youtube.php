@@ -10,9 +10,18 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">ลิ้ง</label>
-                    <input type="text" name="txtyoutube" id="txtyoutube" class="form-control">
-                </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                            <i class="fas fa-link"></i>
+                            </div>
+                        </div>
+                        <input type="text" name="txtyoutube" id="txtyoutube" class="form-control">
+                    </div>
 
+                </div>
+                <label>
+                    <input type="checkbox" name="remember"> เล่นอัตโนมัติ</label>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>

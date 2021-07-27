@@ -18,9 +18,9 @@
                     <tr>
                         <td data-toggle="modal" data-target="#modal_add_picture"  data-dismiss="modal">รูปภาพ</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td data-toggle="modal" data-target="#modal_add_form"  data-dismiss="modal">เพิ่มฟอร์ม</td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td data-toggle="modal" data-target="#modal_add_youtube"  data-dismiss="modal">ยูทูป</td>
                     </tr>
