@@ -30,8 +30,8 @@ $("#btnSaveText").click(function() {
         url: "ajax/add_text.php",
         data: {
             text: $('#txtarea_text').val(),
-            objno: $('#objno').val(),
-            pagecode: $('#pagecode').val()
+            spno: $('#spno').val(),
+            spcode: $('#spcode').val()
         },
         success: function(result) {
 
@@ -55,8 +55,8 @@ $("#btnSaveBtn").click(function() {
             fb: $('#txtbtnfb').val(),
             line: $('#txtbtnline').val(),
             tel: $('#txtbtntel').val(),
-            objno: $('#objno').val(),
-            pagecode: $('#pagecode').val()
+            spno: $('#spno').val(),
+            spcode: $('#spcode').val()
         },
         success: function(result) {
 
@@ -90,34 +90,39 @@ $("#formimages").on("submit", function(event) {
 
 $("#imgaddpic").click(function() {
     $('#inputFile').trigger('click');
+});
+
+$("#btnyoutube").click(function() {
+    
+    var valueauto
+    if($("#chkautoplay").prop("checked") === true)
+    valueauto = 1
+    else
+    valueauto = 0
+    // alert(valueauto);
+
+    $.ajax({
+        type: "POST",
+        url: "ajax/add_youtube.php",
+        data: {
+            youtube: $('#txtyoutube').val(),
+            autoplay: valueauto,
+            spno: $('#spno').val(),
+            spcode: $('#spcode').val()
+        },
+        success: function(result) {
+
+            if (result.status == 1) // Success
+            {
+                alert(result.message);
+                window.location.reload();
+                // console.log(result.message);
+            }
+        }
+    });
 
 });
 
-// $.ajax({
-//         type: "POST",
-//         url: "ajax/get_All.php",
-//         data: {
-//             topiccode: topic
-//         },
-//         success: function(
-//             result) {
-//                 //console.log(result.amount);
-//             if (isInt(topic)) {
-
-//                 $('#txtTotalpeople' + topic).text(result.amount);
-//                 $('#txtTotalamount' + topic).text(formatMoney(result.total, 0));
-//                 $('#txtTotalpercen' + topic).text('100.00 %');
-//             } else {
-//                 $('#txtTotalpeople' + topic.replace(".", "_")).text(result.amount);
-//                 $('#txtTotalamount' + topic.replace(".", "_")).text(formatMoney(result.total, 0));
-//                 $('#txtTotalpercen' + topic.replace(".", "_")).text('100.00 %');
-
-//             }
-
-
-
-//         }
-//     });
 
 
 

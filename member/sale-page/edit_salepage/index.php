@@ -37,31 +37,17 @@ date_default_timezone_set('Asia/Bangkok');
 
     <?php
     
-    $strSQL = "SELECT * FROM `objmaster` as a inner join salepage as b on(a.spcode = b.spcode)  where a.spcode = '".$_POST['selectsp']."'";
+    $strSQL = "SELECT * FROM salepage as a where a.spcode = '".$_POST['selectsp']."'";
 	$query = mysqli_query($conn,$strSQL);
 	
 	$json_result=array(
         "spcode" => array(),
-		"spname" => array(),
-		"stname1" => array(),
-		"storage_id" => array(),
-		"unit" => array(),
-		"stmin1" => array(),
-		"stmin2" => array(),
-		"sellprice" => array(),
-		"status" => array()
+		"spname" => array()
 		
         );
         while($row = $query->fetch_assoc()) {
             array_push($json_result['spcode'],$row["spcode"]);
 			array_push($json_result['spname'],$row["spname"]);
-			// array_push($json_result['stname1'],$row["stname1"]);
-			// array_push($json_result['storage_id'],$row["storage_id"]);
-			// array_push($json_result['unit'],$row["unit"]);
-			// array_push($json_result['stmin1'],$row["stmin1"]);
-			// array_push($json_result['stmin2'],$row["stmin2"]);
-			// array_push($json_result['sellprice'],$row["sellprice"]);
-			// array_push($json_result['status'],$row["status"]);
         }
         
     ?>
@@ -87,8 +73,8 @@ date_default_timezone_set('Asia/Bangkok');
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-        <input type="hidden" name="objno" id="objno" value="1">
-        <input type="hidden" name="pagecode" id="pagecode" value="<?php echo $_POST['selectsp'];?>">
+        <input type="hidden" name="spno" id="spno" value="1">
+        <input type="hidden" name="spcode" id="spcode" value="<?php echo $_POST['selectsp'];?>">
         <input type="hidden" name="txtusername" id="txtusername" value="<?php echo $_SESSION["username"];?>">
         <!-- Main content -->
         <section class="content">

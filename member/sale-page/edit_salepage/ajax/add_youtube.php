@@ -9,7 +9,7 @@
     
     $StrSQL = "INSERT INTO objmaster (`spno`,`spcode`,`typecode`,`status`,`date`,`time`) ";
     $StrSQL .= "VALUES (";
-    $StrSQL .= "'".$_POST["spno"]."','".$_POST["spcode"]."','1','Y','".date("Y-m-d")."','".date("H:i:s")."' ";
+    $StrSQL .= "'".$_POST["spno"]."','".$_POST["spcode"]."','4','Y','".date("Y-m-d")."','".date("H:i:s")."' ";
     $StrSQL .= ")";
     $query = mysqli_query($conn,$StrSQL);
 
@@ -22,9 +22,9 @@
     $objcode = $row["objcode"];
 
     if($query1) {
-        $StrSQL = "INSERT INTO objdetail (`objcode`,`objno`,`text`) ";
+        $StrSQL = "INSERT INTO objdetail (`objcode`,`objno`,`url`,`autoplay`) ";
         $StrSQL .= "VALUES (";
-        $StrSQL .= "'".$objcode."','1','".$_POST["text"]."' ";
+        $StrSQL .= "'".$objcode."','1','".$_POST["youtube"]."','".$_POST["autoplay"]."' ";
         $StrSQL .= ")";
         $query2 = mysqli_query($conn,$StrSQL);
     
@@ -32,7 +32,7 @@
     // echo $StrSQL;
 
         if($query2) {
-            echo json_encode(array('status' => '1','message'=> 'เพิ่มข้อความสำเร็จ'));
+            echo json_encode(array('status' => '1','message'=> 'เพิ่มคลิป youtube สำเร็จ'));
         }
         else
         {
