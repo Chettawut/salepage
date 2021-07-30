@@ -12,7 +12,8 @@
                     <img id="imgaddpic" src="img/addpic.png" style=" display: block;margin: 0 auto;cursor: cell;"
                         alt="Girl in a jacket" width="350" height="350">
                     <input type="file" id="inputFile" name="inputFile" class="form-control" >
-                    <input type="hidden" name="imagename" id="imagename">
+                    <input type="hidden" name="imagespno" id="imagespno">
+                    <input type="hidden" name="imagespcode" id="imagespcode">
                     <!-- <button type="submit" id="btnupload">Upload</button> -->
 
             </div>

@@ -6,20 +6,19 @@
     // $_POST["text"] = 'test';
     // $_POST["spcode"] = 1;
     // $_POST["spno"] = 2;
-    
-    $StrSQL = "INSERT INTO objmaster (`spno`,`spcode`,`typecode`,`status`,`date`,`time`) ";
-    $StrSQL .= "VALUES (";
-    $StrSQL .= "'".$_POST["spno"]."','".$_POST["spcode"]."','4','Y','".date("Y-m-d")."','".date("H:i:s")."' ";
-    $StrSQL .= ")";
-    $query = mysqli_query($conn,$StrSQL);
 
     $sql = "SELECT objcode ";
-	$sql .= "FROM objmaster order by objcode desc LIMIT 1 ";  	
+	$sql .= "FROM objmaster order by objcode desc LIMIT 1 ";  
+    $query = mysqli_query($conn,$sql);
 
-	$query1 = mysqli_query($conn,$sql);
-
-    $row = $query1->fetch_assoc();
-    $objcode = $row["objcode"];
+    $row = $query->fetch_assoc();
+    $objcode = $row["objcode"]+1;
+    
+    $StrSQL = "INSERT INTO objmaster (`objcode`,`spno`,`spcode`,`typecode`,`status`,`date`,`time`) ";
+    $StrSQL .= "VALUES (";
+    $StrSQL .= "'".$objcode."','".$_POST["spno"]."','".$_POST["spcode"]."','4','Y','".date("Y-m-d")."','".date("H:i:s")."' ";
+    $StrSQL .= ")";
+    $query1 = mysqli_query($conn,$StrSQL);
 
     if($query1) {
         $StrSQL = "INSERT INTO objdetail (`objcode`,`objno`,`url`,`autoplay`) ";

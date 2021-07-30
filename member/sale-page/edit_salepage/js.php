@@ -75,30 +75,43 @@ $("#formimages").on("submit", function(event) {
     event.preventDefault(); //prevent default submitting
     var formData = new FormData($(this)[0]);
     $.ajax({
-        url: "ajax/submit_upload_file.php",
+        url: "ajax/add_picture.php",
         type: "post",
         data: formData,
         processData: false, //Not to process data
         contentType: false, //Not to set contentType
-        success: function(data) {
-            alert('เพิ่มรูปภาพสำเร็จ');
+        success: function(result) {
+
+            if (result.status == 1) // Success
+            {
+                alert(result.message);
+                window.location.reload();
+                // console.log(result.message);
+            }
             $('#modal_add_picture').modal('toggle');
         }
     });
 
 });
 
+$('#modal_add_picture').on('shown.bs.modal', function(e) {
+    $('#imagespno').val($('#spno').val()) 
+    $('#imagespcode').val( $('#spcode').val()) 
+    // alert($('#imagespno').val() + ' ' + $('#imagespcode').val())
+})
+
+
 $("#imgaddpic").click(function() {
     $('#inputFile').trigger('click');
 });
 
 $("#btnyoutube").click(function() {
-    
+
     var valueauto
-    if($("#chkautoplay").prop("checked") === true)
-    valueauto = 1
+    if ($("#chkautoplay").prop("checked") === true)
+        valueauto = 1
     else
-    valueauto = 0
+        valueauto = 0
     // alert(valueauto);
 
     $.ajax({
