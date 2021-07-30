@@ -61,12 +61,10 @@ date_default_timezone_set('Asia/Bangkok');
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <button type="button" id="btnBack" onclick="location.href='../'" class="btn btn-success"><i
+                            <button type="button" id="btnBack" onclick="location.href='../'" class="btn btn-primary"><i
                                     class="fa fa fa-tags" aria-hidden="true"></i>
                                 ย้อนกลับ</button>
                                 &nbsp;&nbsp;
-                            <button type="button" class="btn btn-primary"><i class="fas fa-save"></i>
-                                บันทึก</button>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
