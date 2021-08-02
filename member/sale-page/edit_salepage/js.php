@@ -1,27 +1,55 @@
 <script>
 $(document).ready(function() {
 
+    getSpDetail($('#spcode').val())
 
-
-    // $.ajax({
-    //     type: "POST",
-    //     url: "ajax/getsup_salepage.php",
-    //     data: "idcode=" + recipient,
-    //     success: function(result) {
-    //         modal.find('.modal-body #code').val(result.code);
-    //         modal.find('.modal-body #editstcode').val(result.stcode);
-    //         modal.find('.modal-body #editstname1').val(result.stname1);
-    //         modal.find('.modal-body #editstorage_id').val(result.storage_id);
-    //         modal.find('.modal-body #editunit').val(result.unit);
-    //         modal.find('.modal-body #editstmin1').val(result.stmin1);
-    //         modal.find('.modal-body #editstmin2').val(result.stmin2);
-    //         modal.find('.modal-body #editsellprice').val(result.sellprice);
-    //         modal.find('.modal-body #editstatus').val(result.status);
-
-
-    //     }
-    // });
 });
+
+function getSpDetail(spcode) {
+    $.ajax({
+        type: "POST",
+        url: "ajax/getsup_salepage.php",
+        data: "idcode=" + spcode,
+        success: function(result) {
+
+            // alert(result.objcode)
+            for (count = 0; count < result.objcode.length; count++) {
+                if (parseInt(result.typecode[count]) === 1)
+                    $("#divresult").append(result.text[count] + '<br>')
+                else if (parseInt(result.typecode[count]) === 2) {
+                    if (result.type[count] === 'fb')
+                        $("#divresult").append(
+                            '<a href="https://m.me/100069488625633" target="_blank"><img src="img/inbox-button.gif" width="400"></a><br>'
+                        )
+                    else if (result.type[count] == 'line')
+                        $("#divresult").append(
+                            '<a href="https://line.me/ti/p/~100069488625633" target="_blank"><img src="img/line-button.gif" width="400"></a><br>'
+                        )
+                    else if (result.type[count] == 'tel')
+                        $("#divresult").append(
+                            '<a href="tel:+0915028316" target="_blank"><img src="img/tel-button.gif" width="400"></a><br>'
+                        )
+
+                } else if (parseInt(result.typecode[count]) === 3)
+                    $("#divresult").append(
+                        '<img src="uploads/'+result.objcode[count]+'/'+result.url[count]+'" width="400"><br>'
+                    )
+                else if (parseInt(result.typecode[count]) === 4)
+                {
+                    if(parseInt(result.autoplay[count]) === 1)
+                    $("#divresult").append('<iframe width="420" height="315" src="'+result.url[count]+'?autoplay=1"></iframe><br>')
+                    else
+                    $("#divresult").append('<iframe width="420" height="315" src="'+result.url[count]+'"></iframe><br>')
+                        // $("#divresult").append('<iframe width="420" height="315" src="https://www.youtube.com/embed/vqwvN8q36JM?autoplay=1"></iframe><br>')
+                }
+                    
+                    
+
+            }
+        }
+    });
+}
+
 
 $("#btnSaveText").click(function() {
     // alert($("#txtarea_text").val());
@@ -95,8 +123,8 @@ $("#formimages").on("submit", function(event) {
 });
 
 $('#modal_add_picture').on('shown.bs.modal', function(e) {
-    $('#imagespno').val($('#spno').val()) 
-    $('#imagespcode').val( $('#spcode').val()) 
+    $('#imagespno').val($('#spno').val())
+    $('#imagespcode').val($('#spcode').val())
     // alert($('#imagespno').val() + ' ' + $('#imagespcode').val())
 })
 

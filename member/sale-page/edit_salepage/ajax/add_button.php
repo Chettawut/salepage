@@ -23,9 +23,9 @@
 
         if($_POST["line"]!='')
         {
-            $StrSQL = "INSERT INTO objdetail (`objcode`,`objno`,`text`) ";
+            $StrSQL = "INSERT INTO objdetail (`objcode`,`objno`,`text`,`type`) ";
             $StrSQL .= "VALUES (";
-            $StrSQL .= "'".$objcode."','2','".$_POST["line"]."' ";
+            $StrSQL .= "'".$objcode."','2','".$_POST["line"]."','line' ";
             $StrSQL .= ")";
             $query2 = mysqli_query($conn,$StrSQL);
         }
@@ -33,18 +33,18 @@
                 
         if($_POST["fb"]!='')
         {
-            $StrSQL = "INSERT INTO objdetail (`objcode`,`objno`,`text`) ";
+            $StrSQL = "INSERT INTO objdetail (`objcode`,`objno`,`text`,`type`) ";
             $StrSQL .= "VALUES (";
-            $StrSQL .= "'".$objcode."','2','".$_POST["fb"]."' ";
+            $StrSQL .= "'".$objcode."','2','".$_POST["fb"]."','fb' ";
             $StrSQL .= ")";
             $query2 = mysqli_query($conn,$StrSQL);
         }
         
         if($_POST["tel"]!='')
         {
-            $StrSQL = "INSERT INTO objdetail (`objcode`,`objno`,`text`) ";
+            $StrSQL = "INSERT INTO objdetail (`objcode`,`objno`,`text`,`type`) ";
             $StrSQL .= "VALUES (";
-            $StrSQL .= "'".$objcode."','2','".$_POST["tel"]."' ";
+            $StrSQL .= "'".$objcode."','2','".$_POST["tel"]."','tel' ";
             $StrSQL .= ")";
             $query2 = mysqli_query($conn,$StrSQL);
         }

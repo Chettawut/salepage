@@ -155,18 +155,11 @@ date_default_timezone_set('Asia/Bangkok');
 
                         <div id="cardobject" class="card card-outline card-info align-items-center"
                             style="padding:25px;">
-                            <!-- <iframe width="420" height="315" src="https://www.youtube.com/embed/vqwvN8q36JM?autoplay=1">
-                            </iframe>
-                            <div class="form-group">
+                            
+                            <!-- <div class="form-group">
                                 <label for="exampleFormControlInput1">หัวข้อ</label>
                                 <input type="text" class="form-control">
                             </div>
-
-                            <img src="../../img_avatar2.png" width="700" height="500" alt="Flowers in Chania">
-
-                            <img src="../../img/inbox-button.gif" width="200" height="80" alt="Flowers in Chania">
-                            <br>
-                            <img src="../../img/line-button.gif" width="200" height="80" alt="Flowers in Chania">
 
                             <p id="countdown" style="text-align: center;font-size: 60px;margin-top: 0px;"></p>
 
@@ -367,7 +360,8 @@ date_default_timezone_set('Asia/Bangkok');
                                 <br>
                                 เพิ่มเนื้อหา
                             </div>
-                            <input type="text" id="test1">
+                            <div id="divresult"></div>
+                            <br>
                             <button type="button" id="btnSave_text" class="btn btn-primary">บันทึก</button>
                         </div>
                     </div>

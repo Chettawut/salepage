@@ -1,32 +1,34 @@
 <?php
 	header('Content-Type: application/json');
-	include('../../../conn.php');
+	include('../../../../conn.php');
 	
-	$strSQL = "SELECT * FROM `stock`  where code = '".$_POST['idcode']."'";
+	$strSQL = "SELECT a.objcode,a.typecode,b.objno,b.text,b.url,b.number,b.price,b.autoplay,b.type FROM `objmaster` as a inner join `objdetail` as b on (a.objcode = b.objcode) ";
+	$strSQL .= " where a.spcode = '".$_POST['idcode']."'";
+	// $strSQL .= " order by b.,b.objno";
 	$query = mysqli_query($conn,$strSQL);
 	
 	$json_result=array(
-        "code" => array(),
-		"stcode" => array(),
-		"stname1" => array(),
-		"storage_id" => array(),
-		"unit" => array(),
-		"stmin1" => array(),
-		"stmin2" => array(),
-		"sellprice" => array(),
-		"status" => array()
+        "objcode" => array(),
+		"typecode" => array(),
+		"objno" => array(),
+		"text" => array(),
+		"url" => array(),
+		"number" => array(),
+		"price" => array(),
+		"autoplay" => array(),
+		"type" => array()
 		
         );
         while($row = $query->fetch_assoc()) {
-            array_push($json_result['code'],$row["code"]);
-			array_push($json_result['stcode'],$row["stcode"]);
-			array_push($json_result['stname1'],$row["stname1"]);
-			array_push($json_result['storage_id'],$row["storage_id"]);
-			array_push($json_result['unit'],$row["unit"]);
-			array_push($json_result['stmin1'],$row["stmin1"]);
-			array_push($json_result['stmin2'],$row["stmin2"]);
-			array_push($json_result['sellprice'],$row["sellprice"]);
-			array_push($json_result['status'],$row["status"]);
+            array_push($json_result['objcode'],$row["objcode"]);
+			array_push($json_result['typecode'],$row["typecode"]);
+			array_push($json_result['objno'],$row["objno"]);
+			array_push($json_result['text'],$row["text"]);
+			array_push($json_result['url'],$row["url"]);
+			array_push($json_result['number'],$row["number"]);
+			array_push($json_result['price'],$row["price"]);
+			array_push($json_result['autoplay'],$row["autoplay"]);
+			array_push($json_result['type'],$row["type"]);
         }
         echo json_encode($json_result);
 
