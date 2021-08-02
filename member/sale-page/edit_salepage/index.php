@@ -64,7 +64,7 @@ date_default_timezone_set('Asia/Bangkok');
                             <button type="button" id="btnBack" onclick="location.href='../'" class="btn btn-primary"><i
                                     class="fa fa fa-tags" aria-hidden="true"></i>
                                 ย้อนกลับ</button>
-                                &nbsp;&nbsp;
+                            &nbsp;&nbsp;
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -94,7 +94,7 @@ date_default_timezone_set('Asia/Bangkok');
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <br>
                         <div class="container-fluid">
-                            
+
                             <!-- <?php echo $_POST['selectsp']; ?> -->
                             <div class="row">
                                 <div class="col-8">
@@ -103,7 +103,8 @@ date_default_timezone_set('Asia/Bangkok');
                                             <span class="input-group-text" style="background-color:#FFF;">ลิงค์:</span>
                                         </div>
                                         <input type="text" id="mainurl" class="form-control"
-                                            value="https://jaroon.salepage.com/<?php echo $json_result['spname'][0];?>" disabled>
+                                            value="https://jaroon.salepage.com/<?php echo $json_result['spname'][0];?>"
+                                            disabled>
                                     </div>
 
                                 </div>
@@ -138,7 +139,8 @@ date_default_timezone_set('Asia/Bangkok');
                                             style="background-color:#FFF;">ลิงค์(สำรอง):</span>
                                     </div>
                                     <input type="text" id="thxmainurl" class="form-control"
-                                        value="https://jaroon.salespage.com/<?php echo $json_result['spname'][0];?>" disabled>
+                                        value="https://jaroon.salespage.com/<?php echo $json_result['spname'][0];?>"
+                                        disabled>
                                 </div>
 
                             </div>
@@ -155,7 +157,9 @@ date_default_timezone_set('Asia/Bangkok');
 
                         <div id="cardobject" class="card card-outline card-info align-items-center"
                             style="padding:25px;">
+
                             
+
                             <!-- <div class="form-group">
                                 <label for="exampleFormControlInput1">หัวข้อ</label>
                                 <input type="text" class="form-control">
@@ -362,7 +366,6 @@ date_default_timezone_set('Asia/Bangkok');
                             </div>
                             <div id="divresult"></div>
                             <br>
-                            <button type="button" id="btnSave_text" class="btn btn-primary">บันทึก</button>
                         </div>
                     </div>
 
@@ -377,7 +380,7 @@ date_default_timezone_set('Asia/Bangkok');
 
             </div>
     </div>
-    
+
     <?php include_once('modal/add_content.php')?>
     <?php include_once('modal/add_button.php')?>
     <?php include_once('modal/add_text.php')?>

@@ -13,37 +13,90 @@ function getSpDetail(spcode) {
         success: function(result) {
 
             // alert(result.objcode)
+            
+            var fcard,bcard = '</div></div>'
+            var arrobject = ['','ข้อความ','ปุ่ม','รูปภาพ','ยูทูป']
             for (count = 0; count < result.objcode.length; count++) {
+                fcard =
+                '<div class="card"><div class="card-header border-0"><h3 class="card-title">'+arrobject[parseInt(result.typecode[count])]+'</h3><div class="card-tools"><a href="#" class="btn btn-tool btn-sm"><i class="fas fa-download"></i></a><a href="#" class="btn btn-tool btn-sm"><i class="fas fa-bars"></i></a></div></div><div class="card-body table-responsive p-0">'
                 if (parseInt(result.typecode[count]) === 1)
-                    $("#divresult").append(result.text[count] + '<br>')
+                    $("#divresult").append(fcard + result.text[count] + bcard + '<br>')
                 else if (parseInt(result.typecode[count]) === 2) {
                     if (result.type[count] === 'fb')
-                        $("#divresult").append(
-                            '<a href="https://m.me/100069488625633" target="_blank"><img src="img/inbox-button.gif" width="400"></a><br>'
+                        $("#divresult").append(fcard +
+                            '<a href="https://m.me/100069488625633" target="_blank"><img src="img/inbox-button.gif" width="400"></a>'+ bcard + '<br>'
                         )
                     else if (result.type[count] == 'line')
-                        $("#divresult").append(
-                            '<a href="https://line.me/ti/p/~100069488625633" target="_blank"><img src="img/line-button.gif" width="400"></a><br>'
+                        $("#divresult").append(fcard +
+                            '<a href="https://line.me/ti/p/~100069488625633" target="_blank"><img src="img/line-button.gif" width="400"></a>'+ bcard + '<br>'
                         )
                     else if (result.type[count] == 'tel')
-                        $("#divresult").append(
-                            '<a href="tel:+0915028316" target="_blank"><img src="img/tel-button.gif" width="400"></a><br>'
+                        $("#divresult").append(fcard +
+                            '<a href="tel:+0915028316" target="_blank"><img src="img/tel-button.gif" width="400"></a>'+ bcard + '<br>'
                         )
 
                 } else if (parseInt(result.typecode[count]) === 3)
-                    $("#divresult").append(
-                        '<img src="uploads/'+result.objcode[count]+'/'+result.url[count]+'" width="400"><br>'
+                    $("#divresult").append(fcard +
+                        '<img src="uploads/' + result.objcode[count] + '/' + result.url[count] +
+                        '" width="400">'+ bcard + '<br>'
                     )
-                else if (parseInt(result.typecode[count]) === 4)
-                {
-                    if(parseInt(result.autoplay[count]) === 1)
-                    $("#divresult").append('<iframe width="420" height="315" src="'+result.url[count]+'?autoplay=1"></iframe><br>')
+                else if (parseInt(result.typecode[count]) === 4) {
+                    if (parseInt(result.autoplay[count]) === 1)
+                        $("#divresult").append(fcard +'<iframe width="420" height="315" src="' + result.url[
+                            count] + '?autoplay=1"></iframe>'+ bcard + '<br>')
                     else
-                    $("#divresult").append('<iframe width="420" height="315" src="'+result.url[count]+'"></iframe><br>')
-                        // $("#divresult").append('<iframe width="420" height="315" src="https://www.youtube.com/embed/vqwvN8q36JM?autoplay=1"></iframe><br>')
+                        $("#divresult").append(fcard +'<iframe width="420" height="315" src="' + result.url[
+                            count] + '"></iframe>'+ bcard + '<br>')
+                    // $("#divresult").append('<iframe width="420" height="315" src="https://www.youtube.com/embed/vqwvN8q36JM?autoplay=1"></iframe><br>')
                 }
-                    
-                    
+
+                //     <div class="card">
+                //   <div class="card-header border-0">
+                //     <h3 class="card-title">Products</h3>
+                //     <div class="card-tools">
+                //       <a href="#" class="btn btn-tool btn-sm">
+                //         <i class="fas fa-download"></i>
+                //       </a>
+                //       <a href="#" class="btn btn-tool btn-sm">
+                //         <i class="fas fa-bars"></i>
+                //       </a>
+                //     </div>
+                //   </div>
+                //   <div class="card-body table-responsive p-0">
+                //     <table class="table table-striped table-valign-middle">
+                //       <thead>
+                //       <tr>
+                //         <th>Product</th>
+                //         <th>Price</th>
+                //         <th>Sales</th>
+                //         <th>More</th>
+                //       </tr>
+                //       </thead>
+                //       <tbody>
+                //       <tr>
+                //         <td>
+                //           <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                //           Some Product
+                //         </td>
+                //         <td>$13 USD</td>
+                //         <td>
+                //           <small class="text-success mr-1">
+                //             <i class="fas fa-arrow-up"></i>
+                //             12%
+                //           </small>
+                //           12,000 Sold
+                //         </td>
+                //         <td>
+                //           <a href="#" class="text-muted">
+                //             <i class="fas fa-search"></i>
+                //           </a>
+                //         </td>
+                //       </tr>
+                //       </tbody>
+                //     </table>
+                //   </div>
+                // </div>
+
 
             }
         }
