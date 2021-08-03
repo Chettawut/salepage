@@ -13,43 +13,54 @@ function getSpDetail(spcode) {
         success: function(result) {
 
             // alert(result.objcode)
-            
-            var fcard,bcard = '</div></div>'
-            var arrobject = ['','ข้อความ','ปุ่ม','รูปภาพ','ยูทูป']
+
+            var fcard, bcard = '</div></div>'
+            var arrobject = ['', 'ข้อความ', 'ปุ่ม', 'รูปภาพ', 'ยูทูป']
+            var objcheck = '';
+            var btnhtml = '';
             for (count = 0; count < result.objcode.length; count++) {
                 fcard =
-                '<div class="card"><div class="card-header border-0"><h3 class="card-title">'+arrobject[parseInt(result.typecode[count])]+'</h3><div class="card-tools"><a href="#" class="btn btn-tool btn-sm"><i class="fas fa-download"></i></a><a href="#" class="btn btn-tool btn-sm"><i class="fas fa-bars"></i></a></div></div><div class="card-body table-responsive p-0">'
+                    '<div class="card"><div class="card-header border-0"><h3 class="card-title">' +
+                    arrobject[parseInt(result.typecode[count])] +
+                    '</h3><div class="card-tools"><a href="#" class="btn btn-tool btn-sm"><i class="fas fa-download"></i></a><a href="#" class="btn btn-tool btn-sm"><i class="fas fa-bars"></i></a></div></div><div class="card-body table-responsive p-0">'
+                if (objcheck != result.objcode[count]) {
+                    if (btnhtml != '') {
+                        $("#divresult").append(fcard + btnhtml + bcard)
+                        btnhtml = ''
+                    }
+                    objcheck = result.objcode[count]
+                }
+
                 if (parseInt(result.typecode[count]) === 1)
                     $("#divresult").append(fcard + result.text[count] + bcard + '<br>')
                 else if (parseInt(result.typecode[count]) === 2) {
                     if (result.type[count] === 'fb')
-                        $("#divresult").append(fcard +
-                            '<a href="https://m.me/100069488625633" target="_blank"><img src="img/inbox-button.gif" width="400"></a>'+ bcard + '<br>'
-                        )
+                        btnhtml +=
+                        '<a href="https://m.me/100069488625633" target="_blank"><img src="img/inbox-button.gif" width="400"></a><br>';
                     else if (result.type[count] == 'line')
-                        $("#divresult").append(fcard +
-                            '<a href="https://line.me/ti/p/~100069488625633" target="_blank"><img src="img/line-button.gif" width="400"></a>'+ bcard + '<br>'
-                        )
+                        btnhtml +=
+                        '<a href="https://line.me/ti/p/~100069488625633" target="_blank"><img src="img/line-button.gif" width="400"></a><br>';
                     else if (result.type[count] == 'tel')
-                        $("#divresult").append(fcard +
-                            '<a href="tel:+0915028316" target="_blank"><img src="img/tel-button.gif" width="400"></a>'+ bcard + '<br>'
-                        )
-
-                } else if (parseInt(result.typecode[count]) === 3)
+                        btnhtml +=
+                        '<a href="tel:+0915028316" target="_blank"><img src="img/tel-button.gif" width="400"></a><br>';
+                } else if (parseInt(result.typecode[count]) === 3) {
                     $("#divresult").append(fcard +
                         '<img src="uploads/' + result.objcode[count] + '/' + result.url[count] +
-                        '" width="400">'+ bcard + '<br>'
+                        '" width="400">' + bcard + '<br>'
                     )
-                else if (parseInt(result.typecode[count]) === 4) {
+                    // console.log(result.objcode[count]);
+                } else if (parseInt(result.typecode[count]) === 4) {
                     if (parseInt(result.autoplay[count]) === 1)
-                        $("#divresult").append(fcard +'<iframe width="420" height="315" src="' + result.url[
-                            count] + '?autoplay=1"></iframe>'+ bcard + '<br>')
+                        $("#divresult").append(fcard + '<iframe width="420" height="315" src="' + result
+                            .url[
+                                count] + '?autoplay=1"></iframe>' + bcard + '<br>')
                     else
-                        $("#divresult").append(fcard +'<iframe width="420" height="315" src="' + result.url[
-                            count] + '"></iframe>'+ bcard + '<br>')
+                        $("#divresult").append(fcard + '<iframe width="420" height="315" src="' + result
+                            .url[
+                                count] + '"></iframe>' + bcard + '<br>')
                     // $("#divresult").append('<iframe width="420" height="315" src="https://www.youtube.com/embed/vqwvN8q36JM?autoplay=1"></iframe><br>')
                 }
-
+                // console.log(result.objcode[count]);
                 //     <div class="card">
                 //   <div class="card-header border-0">
                 //     <h3 class="card-title">Products</h3>
