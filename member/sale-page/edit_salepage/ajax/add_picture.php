@@ -32,7 +32,7 @@ date_default_timezone_set('Asia/Bangkok');
             {
                 $StrSQL = "INSERT INTO objdetail (`objcode`,`objno`,`url`) ";
                 $StrSQL .= "VALUES (";
-                $StrSQL .= "'".$objcode."','1','".$fileName."' ";
+                $StrSQL .= "'".$objcode."','','".$fileName."' ";
                 $StrSQL .= ")";
                 $query2 = mysqli_query($conn,$StrSQL);
 

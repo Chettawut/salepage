@@ -6,7 +6,7 @@
     // $_POST["text"] = 'test';
     // $_POST["spno"] = 1;
     // $_POST["spcode"] = 2;
-    if($_POST["line"]!=''&&$_POST["fb"]!=''&&$_POST["tel"]!='')
+    if($_POST["line"]!=''||$_POST["fb"]!=''||$_POST["tel"]!='')
     {
         $sql = "SELECT objcode ";
         $sql .= "FROM objmaster order by objcode desc LIMIT 1 ";  
@@ -21,33 +21,29 @@
         $StrSQL .= ")";
         $query1 = mysqli_query($conn,$StrSQL);
 
-        if($_POST["line"]!='')
-        {
+        // if($_POST["line"]!='')
+        // {
             $StrSQL = "INSERT INTO objdetail (`objcode`,`objno`,`text`,`type`) ";
             $StrSQL .= "VALUES (";
-            $StrSQL .= "'".$objcode."','2','".$_POST["line"]."','line' ";
+            $StrSQL .= "'".$objcode."','','".$_POST["line"]."','line' ";
             $StrSQL .= ")";
             $query2 = mysqli_query($conn,$StrSQL);
-        }
+        // }
     
-                
-        if($_POST["fb"]!='')
-        {
+            
             $StrSQL = "INSERT INTO objdetail (`objcode`,`objno`,`text`,`type`) ";
             $StrSQL .= "VALUES (";
-            $StrSQL .= "'".$objcode."','2','".$_POST["fb"]."','fb' ";
+            $StrSQL .= "'".$objcode."','','".$_POST["fb"]."','fb' ";
             $StrSQL .= ")";
             $query2 = mysqli_query($conn,$StrSQL);
-        }
         
-        if($_POST["tel"]!='')
-        {
+        
             $StrSQL = "INSERT INTO objdetail (`objcode`,`objno`,`text`,`type`) ";
             $StrSQL .= "VALUES (";
-            $StrSQL .= "'".$objcode."','2','".$_POST["tel"]."','tel' ";
+            $StrSQL .= "'".$objcode."','','".$_POST["tel"]."','tel' ";
             $StrSQL .= ")";
             $query2 = mysqli_query($conn,$StrSQL);
-        }
+        
 
         // echo $StrSQL;
         

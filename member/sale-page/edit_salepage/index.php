@@ -388,6 +388,8 @@ date_default_timezone_set('Asia/Bangkok');
     <?php include_once('modal/add_form.php')?>
     <?php include_once('modal/add_youtube.php')?>
 
+    <?php include_once('modal/edit_button.php')?>
+
 </body>
 
 </html>

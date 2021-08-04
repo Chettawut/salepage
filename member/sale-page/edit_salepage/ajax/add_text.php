@@ -23,7 +23,7 @@
     if($query1) {
         $StrSQL = "INSERT INTO objdetail (`objcode`,`objno`,`text`) ";
         $StrSQL .= "VALUES (";
-        $StrSQL .= "'".$objcode."','1','".$_POST["text"]."' ";
+        $StrSQL .= "'".$objcode."','','".$_POST["text"]."' ";
         $StrSQL .= ")";
         $query2 = mysqli_query($conn,$StrSQL);
     
