@@ -29,14 +29,14 @@ function getSpDetail(spcode) {
                     }
                     objcheck = result.objcode[count]
                 }
-                
+
                 fcard =
                     '<div class="card" data-toggle="modal" data-target="#' + editobject[parseInt(result
                         .typecode[count])] + '" data-whatever="' + result.objcode[count] +
                     '"><div class="card-header border-0"><h3 class="card-title">' +
                     arrobject[parseInt(result.typecode[count])] +
                     '</h3><div class="card-tools"><a href="#" class="btn btn-tool btn-sm"><i class="fas fa-download"></i></a><a href="#" class="btn btn-tool btn-sm"><i class="fas fa-bars"></i></a></div></div><div class="card-body table-responsive p-0">'
-               
+
 
                 if (parseInt(result.typecode[count]) === 1)
                     $("#divresult").append(fcard + result.text[count] + bcard + '<br>')
@@ -70,6 +70,8 @@ function getSpDetail(spcode) {
 
 
             }
+            $("#spno").val(count)
+
             if (btnhtml != '') {
                 $("#divresult").append(fcard + btnhtml + bcard)
                 btnhtml = ''
@@ -77,6 +79,25 @@ function getSpDetail(spcode) {
         }
     });
 }
+
+$('#modal_edit_text').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget)
+    var recipient = button.data('whatever')
+    var modal = $(this)
+
+    $("#edittextid").val(recipient)
+
+    $.ajax({
+        type: "POST",
+        url: "ajax/getsup_text.php",
+        data: "idcode=" + recipient,
+        success: function(result) {
+            // alert(result.text[0])
+            $('#edittext').text(result.text[0])
+        }
+    });
+    //   modal.find('.modal-body input').val(recipient)
+})
 
 $('#modal_edit_button').on('show.bs.modal', function(event) {
     var button = $(event.relatedTarget)
@@ -91,13 +112,35 @@ $('#modal_edit_button').on('show.bs.modal', function(event) {
         data: "idcode=" + recipient,
         success: function(result) {
             // alert(result.line[0])
-            $('#txteditbtnfb').val(result.fb[0])            
+            $('#txteditbtnfb').val(result.fb[0])
             $('#txteditbtnline').val(result.line[0])
             $('#txteditbtntel').val(result.tel[0])
         }
     });
     //   modal.find('.modal-body input').val(recipient)
 })
+
+$("#btnEditText").click(function() {
+    alert($('#edittextid').val() + ' ' +$("#edittext").val());
+
+    // $.ajax({
+    //     type: "POST",
+    //     url: "ajax/edit_text.php",
+    //     data: {
+    //         idcode: $('#edittextid').val(),
+    //         text: $('#txteditarea_text').text()
+    //     },
+    //     success: function(result) {
+    //         // alert(result)
+    //         if (result.status == 1) // Success
+    //         {
+    //             alert(result.message);
+    //             window.location.reload();
+    //             // console.log(result.message);
+    //         }
+    //     }
+    // });
+});
 
 $("#btnEditBtn").click(function() {
     // console.log($("#txtbtnfb").val());
@@ -108,7 +151,7 @@ $("#btnEditBtn").click(function() {
             type: "POST",
             url: "ajax/edit_button.php",
             data: {
-                id: $('#editbuttonid').val(),
+                idcode: $('#editbuttonid').val(),
                 fb: $('#txteditbtnfb').val(),
                 line: $('#txteditbtnline').val(),
                 tel: $('#txteditbtntel').val(),
@@ -116,7 +159,7 @@ $("#btnEditBtn").click(function() {
                 spcode: $('#spcode').val()
             },
             success: function(result) {
-
+                // alert(result)
                 if (result.status == 1) // Success
                 {
                     alert(result.message);

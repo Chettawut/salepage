@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><i class="fas fa-plus-circle" style="color:green"></i> แก้ไขปุ่ม</h5>
+                <h5 class="modal-title"><i class="fa fa-edit" style="color:blue"></i> แก้ไขปุ่ม</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

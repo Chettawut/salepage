@@ -85,7 +85,7 @@ date_default_timezone_set('Asia/Bangkok');
                             </a>
                         </div>
                     </div>
-                    <form id="frmsp" action="edit_salepage/index.php" method="post" target="_self">
+                    <form id="frmsp" action="manage/index.php" method="post" target="_self">
                         <!-- <button type="button" id="btnBack" style="display:none;" class="btn btn-success"><i
                                 class="fa fa fa-tags" aria-hidden="true"></i>
                             ย้อนกลับ</button>

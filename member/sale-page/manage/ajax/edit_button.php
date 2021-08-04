@@ -11,16 +11,16 @@
 
         
             $StrSQL = "UPDATE objdetail SET `text`= '".$_POST["line"]."' ";
-            $StrSQL .= "WHERE objcode='".$_POST["id"]."' and type='line' ";
+            $StrSQL .= "WHERE objcode='".$_POST["idcode"]."' and type='line' ";
             $query2 = mysqli_query($conn,$StrSQL);    
             
             $StrSQL = "UPDATE objdetail SET `text`= '".$_POST["fb"]."' ";
-            $StrSQL .= "WHERE objcode='".$_POST["id"]."' and type='fb' ";
+            $StrSQL .= "WHERE objcode='".$_POST["idcode"]."' and type='fb' ";
             $query2 = mysqli_query($conn,$StrSQL);
         
         
             $StrSQL = "UPDATE objdetail SET `text`= '".$_POST["tel"]."' ";
-            $StrSQL .= "WHERE objcode='".$_POST["id"]."' and type='tel' ";
+            $StrSQL .= "WHERE objcode='".$_POST["idcode"]."' and type='tel' ";
             $query2 = mysqli_query($conn,$StrSQL);
         
 
