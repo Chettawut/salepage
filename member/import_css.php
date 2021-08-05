@@ -29,3 +29,6 @@ define('PATH_CSS', ROOT_CSS == $_SERVER['DOCUMENT_ROOT']
 <link rel="stylesheet" href="<?php echo PATH_CSS; ?>/AdminLTE-3.0.5/plugins/summernote/summernote-bs4.css">
 <!-- Google Font: Source Sans Pro -->
 <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> -->
+
+<!-- include summernote css -->
+<link href="<?php echo PATH_CSS; ?>/summernote/summernote.min.css" rel="stylesheet">

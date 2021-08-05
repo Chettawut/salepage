@@ -8,9 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <textarea class="textarea" id="edittext" style="width: 100%; height: 100%; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-                    <span name="txteditarea_text" id="txteditarea_text"></span>
-                    </textarea>
+                <div name="txteditarea_text" id="txteditarea_text"></div>
                 <input type="hidden" name="edittextid" id="edittextid">
             </div>
             <div class="modal-footer">

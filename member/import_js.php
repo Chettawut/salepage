@@ -45,6 +45,9 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="<?php echo PATH_JS; ?>/AdminLTE-3.0.5/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js">
 </script>
 
+<!-- include summernote js -->
+<script src="<?php echo PATH_JS; ?>/summernote/summernote.min.js"></script>
+
 
 <script>
 // $("#btnLogout").click(function() {

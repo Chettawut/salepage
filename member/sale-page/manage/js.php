@@ -86,6 +86,12 @@ $('#modal_edit_text').on('show.bs.modal', function(event) {
     var modal = $(this)
 
     $("#edittextid").val(recipient)
+    $('#txteditarea_text').summernote({
+        height: 300, // set editor height
+        minHeight: null, // set minimum height of editor
+        maxHeight: null, // set maximum height of editor
+        focus: true
+    });
 
     $.ajax({
         type: "POST",
@@ -93,7 +99,7 @@ $('#modal_edit_text').on('show.bs.modal', function(event) {
         data: "idcode=" + recipient,
         success: function(result) {
             // alert(result.text[0])
-            $('#edittext').text(result.text[0])
+            $('#txteditarea_text').summernote('code',result.text[0])
         }
     });
     //   modal.find('.modal-body input').val(recipient)
@@ -121,25 +127,25 @@ $('#modal_edit_button').on('show.bs.modal', function(event) {
 })
 
 $("#btnEditText").click(function() {
-    alert($('#edittextid').val() + ' ' +$("#edittext").val());
+    // alert($('#edittextid').val() + ' ' + $("#txteditarea_text").summernote('code'));
 
-    // $.ajax({
-    //     type: "POST",
-    //     url: "ajax/edit_text.php",
-    //     data: {
-    //         idcode: $('#edittextid').val(),
-    //         text: $('#txteditarea_text').text()
-    //     },
-    //     success: function(result) {
-    //         // alert(result)
-    //         if (result.status == 1) // Success
-    //         {
-    //             alert(result.message);
-    //             window.location.reload();
-    //             // console.log(result.message);
-    //         }
-    //     }
-    // });
+    $.ajax({
+        type: "POST",
+        url: "ajax/edit_text.php",
+        data: {
+            idcode: $('#edittextid').val(),
+            text: $("#txteditarea_text").summernote('code')
+        },
+        success: function(result) {
+            // alert(result)
+            if (result.status == 1) // Success
+            {
+                alert(result.message);
+                window.location.reload();
+                // console.log(result.message);
+            }
+        }
+    });
 });
 
 $("#btnEditBtn").click(function() {
