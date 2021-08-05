@@ -126,6 +126,26 @@ $('#modal_edit_button').on('show.bs.modal', function(event) {
     //   modal.find('.modal-body input').val(recipient)
 })
 
+$('#modal_edit_youtube').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget)
+    var recipient = button.data('whatever')
+    var modal = $(this)
+
+    $("#edityoutubeid").val(recipient)
+
+    $.ajax({
+        type: "POST",
+        url: "ajax/getsup_youtube.php",
+        data: "idcode=" + recipient,
+        success: function(result) {
+            
+            $('#txtedityoutube').val(result.url[0])
+            $('#chkeditautoplay').attr('checked', (result.autoplay[0]==1));
+        }
+    });
+    //   modal.find('.modal-body input').val(recipient)
+})
+
 $("#btnEditText").click(function() {
     // alert($('#edittextid').val() + ' ' + $("#txteditarea_text").summernote('code'));
 
@@ -177,6 +197,33 @@ $("#btnEditBtn").click(function() {
     }
 });
 
+$("#btnEditYoutube").click(function() {
+    var valueauto
+    if ($("#chkeditautoplay").prop("checked") === true)
+        valueauto = 1
+    else
+        valueauto = 0
+    // alert(valueauto);
+
+    $.ajax({
+        type: "POST",
+        url: "ajax/edit_youtube.php",
+        data: {
+            idcode: $('#edityoutubeid').val(),
+            url: $("#txtedityoutube").val(),
+            autoplay: valueauto
+        },
+        success: function(result) {
+            // alert(result)
+            if (result.status == 1) // Success
+            {
+                alert(result.message);
+                window.location.reload();
+                // console.log(result.message);
+            }
+        }
+    });
+});
 
 $("#btnSaveText").click(function() {
     // alert($("#txtarea_text").val());

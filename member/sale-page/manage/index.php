@@ -191,6 +191,7 @@ date_default_timezone_set('Asia/Bangkok');
 
     <?php include_once('modal/edit_text.php')?>
     <?php include_once('modal/edit_button.php')?>
+    <?php include_once('modal/edit_youtube.php')?>
 
 </body>
 
